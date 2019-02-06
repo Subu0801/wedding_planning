@@ -19,9 +19,13 @@ Route::get('/our_services', function () {
     return view('our_services');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/client', function () {
+    return view('client');
 });
+
+// Route::get('vendor', function () {
+//     return view('vendor');
+// });
 
 Route::get('/onlinecalendar', function () {
     return view('onlinecalendar');

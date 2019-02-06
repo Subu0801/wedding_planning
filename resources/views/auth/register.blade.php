@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -24,12 +24,17 @@
                                 @endif
                             </div>
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
+                                    <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
                                     <input id="age" name="age" type="text" >
 
-                                </div>
+                                </div> --}}
 
-                                <div class="col-md-6">
+                                </div>
+                               
+                                <div class="col-md-20">
+
+                                        <label for="user_type" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
                                         <select name="type">
                                                 <option value="1">vendor</option>
@@ -37,7 +42,6 @@
                                         </select>
                                                 
     
-                                </div>
                         </div>
                         
                         {{--  <div class="form-group row">

@@ -80,21 +80,21 @@
             @endif
 
             <div class="content">
-                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="100%" width="100%">
+                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="250" width="1349">
                 <div class="title m-b-md">
                     Wedding Bell chain
                 </div>
-                
 
-                {{--  <div class="links">
-                    <a href="https://laravel.com/docs">Home Page</a>
-                    <a href="https://laracasts.com">Vendor Information</a>
-                    <a href="https://laravel-news.com">Client Information/a>
-                    <a href="https://nova.laravel.com">Online Calendar</a>
-                    <a href="https://forge.laravel.com">Online Help</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>  --}}
+             <div class="links">
+                    <a href="home">Home Page</a>
+                    <a href="our_services">Our Services</a>
+                    <a href="profile">Client Account</a>
+                    <a href="vendor">Vendors</a>
+                    <a href="onlinecalendar">Online Calendar Services</a>
+                    <a href="onlinehelpchatting&wedidea">Online Help Chatting  Wedd Idea</a>
+                </div> 
             </div>
         </div>
     </body>
 </html>
+
