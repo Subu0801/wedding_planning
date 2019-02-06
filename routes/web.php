@@ -56,15 +56,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 //create vendor link
 Route::resource('/vendor', 'VendorController');
 
+Route::get('/vendor_services.wedding_deco', function () {
+    return view('vendor_services.wedding_deco');
+});
 
 Route::get('/profile', 'UserController@index');
 
 Route::group(['middleware' => 'can:vendor'], function() {
     Route::get('/clients', 'UserController@allClients');
-
-    Route::get('/vendor_services.wedding_deco', function () {
-        return view('vendor_services.wedding_deco');
-    });
 });
 
 
