@@ -51,6 +51,10 @@ Route::get('/vendor_services.photography', function () {
     return view('vendor_services.photography');
 });
 
+Route::get('/photo_gallery', function () {
+    return view('photo_gallery');
+});
+
 
 
 Auth::routes();

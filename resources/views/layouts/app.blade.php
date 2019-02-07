@@ -119,6 +119,11 @@
                     <li class="nav-item">
                             <a class="nav-link" href="/onlinehelpchatting&wedidea">Online Help Chatting & Wedd Idea</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/photo_gallery">Photo Gallery</a>
+                    </li>
+                 
                      
                     {{--  <li class="nav-item">
                       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Online Calendar Services</a>

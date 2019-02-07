@@ -68,19 +68,19 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}"><b>Home</b></a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}"><b>Login</b></a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}"><b>Register</b></a>
                         @endif
                     @endauth
                 </div>
             @endif
 
             <div class="content">
-                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="250" width="1349">
+                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="450" width="1349">
                 <div class="title m-b-md">
                     Wedding Bell chain
                 </div>
