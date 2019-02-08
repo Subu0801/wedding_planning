@@ -16,7 +16,7 @@
                     
                     <!-- Page content -->
                     <div class="main">
-                      ...
+                  
                     </div>
             </div>
             <div class="col-sm-9">

@@ -55,7 +55,26 @@ Route::get('/photo_gallery', function () {
     return view('photo_gallery');
 });
 
+Route::get('/salon', function () {
+    return view('vendor_services.salon');
+});
 
+Route::get('/hotel_services', function () {
+    return view('vendor_services.hotel_services');
+});
+
+Route::get('/videography', function () {
+    return view('vendor_services.videography');
+});
+
+
+Route::get('/photography', function () {
+    return view('vendor_services.photography');
+});
+
+Route::get('/wedding_deco', function () {
+    return view('vendor_services.wedding_deco');
+});
 
 Auth::routes();
 
