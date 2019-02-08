@@ -16,7 +16,7 @@ class VendorController extends Controller
     //hadana adds eka para pennana eka page ekk
     {
         $data = vendor::all();
-        return view("vendor.index")->with('data',$data);
+        return view("vendor")->with('data',$data);
     }
 
     /**

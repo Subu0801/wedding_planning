@@ -24,25 +24,25 @@
                                 @endif
                             </div>
 
-                            {{-- <div class="col-md-6">
+                            <div class="col-md-6">
                                     <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
                                     <input id="age" name="age" type="text" >
 
-                                </div> --}}
+                                </div>
 
                                 </div>
                                
-                                <div class="col-md-20">
+                                 <div class="col-md-20">
 
                                         <label for="user_type" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
-                                        <select name="type">
+                                        <select class="" name="type">
                                                 <option value="1">vendor</option>
                                                 <option value="0">user</option>   
                                         </select>
                                                 
     
-                        </div>
+                        </div>  
                         
                         {{--  <div class="form-group row">
                              <label for="lname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>

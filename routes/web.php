@@ -75,5 +75,8 @@ Route::group(['middleware' => 'can:vendor'], function() {
 });
 
 
+Route::get('/profile', function () {
+    return view('profile');
+});
 
 
