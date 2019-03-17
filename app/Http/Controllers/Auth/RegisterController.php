@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Vendor;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -48,12 +49,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+
+        $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            // 'type' => ['required'],
+            'type' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'mobile'=> ['required', 'string','max:10'],
+            'land'=> ['required', 'string','max:10'],
         ]);
+
+        if($data['type']=='1'){
+            $validator = Validator::make($data, [
+                'company' => ['required'],
+            ]);
+        }
+        return $validator;
     }
 
     /**
@@ -64,12 +75,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'age'=>$data['age'],
-            'type'=>$data['type'],
+            'user_type'=>$data['type'],
             'password' => Hash::make($data['password']),
+            'mobile_no' =>$data['mobile'],
+            'land_no' =>$data['land'],
         ]);
+        if($data['type']=='1'){
+            Vendor::create([
+                'name' => $data['name'],
+                'user_id' => $user->id,
+                'company_name'=>$data['company'],
+                'vendor_address'=>$data['address'],
+                'vendor_type'=>$data['vendor_type']
+            ]);
+        }
+        return $user;
     }
 }

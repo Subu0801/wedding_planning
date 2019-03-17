@@ -94,8 +94,10 @@ Route::group(['middleware' => 'can:vendor'], function() {
 });
 
 
-Route::get('/profile', function () {
-    return view('profile');
-});
 
+Route::get('/profile', 'ProfileController@index');
+
+
+Route::get('calendar', 'CalendarController@index')->name('calendars,index');
+Route::post('calendar', 'CalendarController@addEvent')->name('calendars,add');
 

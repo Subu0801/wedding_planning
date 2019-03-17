@@ -16,9 +16,9 @@ class CreateCalendarsTable extends Migration
         Schema::create('calendars', function (Blueprint $table) {
             $table->increments('calendar_id');
             $table->uuid('vendor_id');
-            $table->string('vendor_name');
+            $table->string('company_name');
             $table->date('booking_date');
-            $table->dateTime('booking_time');
+            // $table->dateTime('booking_time');
             $table->timestamps();
         });
     }

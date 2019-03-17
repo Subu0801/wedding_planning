@@ -23,58 +23,81 @@
                                     </span>
                                 @endif
                             </div>
-
-                            <div class="col-md-6">
-                                    <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
-                                    <input id="age" name="age" type="text" >
-
-                                </div>
-
-                                </div>
+                             </div>
                                
                                  <div class="col-md-20">
 
-                                        <label for="user_type" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+                                        <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
-                                        <select class="" name="type">
+                                        <select class="" name="type" id="type">
+                                                <option selected value="null">Choose Type</option>
                                                 <option value="1">vendor</option>
                                                 <option value="0">user</option>   
                                         </select>
                                                 
-    
-                        </div>  
+                            </div> 
+
+                            {{--  vendor form section  --}}
                         
-                        {{--  <div class="form-group row">
-                             <label for="lname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                        <div id="venderSec" style="display: none">
+                            <div class="form-group row">
+                                <label for="company" class="col-md-4 col-form-label text-md-right">Company Name</label>
     
-                            <div class="col-md-6">
-                                 <input id="lname" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-    
-                                @if ($errors->has('name'))
+                                <div class="col-md-6">
+                                    <input id="company" type="text" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}" name="company">
+                                    @if ($errors->has('company'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('company') }}</strong>
+                                    </span>
+                                @endif
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="address" class="col-md-4 col-form-label text-md-right">Vendor Address</label>
+    
+                                <div class="col-md-6">
+                                    <input id="address" type="text" class="form-control" name="address">
+                                </div>
+                            </div>
+                            <div class="col-md-20">
+
+                                <label for="vendor_type" class="col-md-4 col-form-label text-md-right">{{ __('Vendor Type') }}</label>
+
+                                <select class="" name="vendor_type" id="vendor_type">
+                                        <option selected value="null">Select Vendor Type</option>
+                                        <option value="Hotel Services">Hotel Services</option>
+                                        <option value="Photography">Photography</option>
+                                        <option value="Salon">Salon</option>
+                                        <option value="Videography">Videography</option>
+                                        <option value="Wedding Deco">Wedding Deco</option>            
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+{{--  public form section  --}}
+                        
+                          <div class="form-group row">
+                            <label for="mobile" class="col-md-4 col-form-label text-md-right"> Mobile Number</label>
+
+                            <div class="col-md-6">
+                                <input id="mobile" type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile">
+                                @if ($errors->has('mobile'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('mobile') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>  --}}
-                        
-                        {{--  <div class="form-group row">
-                                <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('user type') }}</label>
-       
-                               <div class="col-md-6">
-                                    <select class= "form-control">
-                                        <option value="vendor">Vendor</option>
-                                        <option value="client">Client</option>
-                                    </select>
-                                   @if ($errors->has('name'))
-                                       <span class="invalid-feedback" role="alert">
-                                           <strong>{{ $errors->first('name') }}</strong>
-                                       </span>
-                                   @endif
-                               </div>
-                           </div>  --}}
-
+                        </div>
                         <div class="form-group row">
+                            <label for="land" class="col-md-4 col-form-label text-md-right">Land Number</label>
+
+                            <div class="col-md-6">
+                                <input id="land" type="text" class="form-control" name="land">
+                            </div>
+                        </div> 
+                        
+                     <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+{{--  @extends('layouts.app')
 
 {{--  include content  --}}
-@section('content')
+{{--  @section('content')
  
 
 
 
 
-@endsection
+@endsection  --}}  --}}

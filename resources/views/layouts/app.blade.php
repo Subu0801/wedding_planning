@@ -97,7 +97,7 @@
                       <a class="nav-link" href="/our_services">Our Services</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="/profile">Client Account</a>
+                            <a class="nav-link" href="/profile">Profile</a>
                      </li>
                      
                     <li class="nav-item dropdown">
@@ -107,7 +107,6 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/vendor_services.salon">Salon</a>
                         <a class="dropdown-item" href="/vendor_services.hotel_services">Hotels Services</a>
-                        {{--  <div class="dropdown-divider"></div>  --}}
                         <a class="dropdown-item" href="/vendor_services.videography">Videography</a>
                         <a class="dropdown-item" href="/vendor_services.photography">Photography</a>
                         <a class="dropdown-item" href="/vendor_services.wedding_deco">Wedding Deco</a>
@@ -146,16 +145,23 @@
                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                         </ol>
-                        <div style="height: 350px" class="carousel-inner">
+                        <div style="height: 600px" class="carousel-inner">
                           <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('images/profile/first.JPG') }}" alt="First slide">
+                            <img class="d-block w-100" src="{{asset('images/profile/22.JPG') }}" alt="First slide">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/profile/second.JPG') }}" alt="Second slide">
+                            <img class="d-block w-100" src="{{asset('images/profile/one.JPG') }}" alt="Second slide">
                           </div>
                           <div class="carousel-item">
                             <img class="d-block w-100" src="{{asset('images/profile/third.JPG') }}" alt="Third slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="{{asset('images/profile/21.JPG') }}" alt="Fourth slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="{{asset('images/profile/second.JPG') }}" alt="Fourth slide">
                           </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -222,5 +228,7 @@
             
           </div>
         </div>   
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/profile.js"></script>
 </body>
 </html>
