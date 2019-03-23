@@ -1,13 +1,12 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\User;
 use App\Vendor;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -21,16 +20,13 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
     protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
@@ -40,7 +36,6 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,7 +44,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-
         $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'type' => ['required'],
@@ -58,7 +52,6 @@ class RegisterController extends Controller
             'mobile'=> ['required', 'string','max:10'],
             'land'=> ['required', 'string','max:10'],
         ]);
-
         if($data['type']=='1'){
             $validator = Validator::make($data, [
                 'company' => ['required'],
@@ -66,7 +59,6 @@ class RegisterController extends Controller
         }
         return $validator;
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -75,23 +67,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user= User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'user_type'=>$data['type'],
-            'password' => Hash::make($data['password']),
-            'mobile_no' =>$data['mobile'],
-            'land_no' =>$data['land'],
-        ]);
-        if($data['type']=='1'){
-            Vendor::create([
+        DB::beginTransaction();
+
+        try {
+            $user= User::create([
                 'name' => $data['name'],
-                'user_id' => $user->id,
-                'company_name'=>$data['company'],
-                'vendor_address'=>$data['address'],
-                'vendor_type'=>$data['vendor_type']
+                'email' => $data['email'],
+                'user_type'=>$data['type'],
+                'password' => Hash::make($data['password']),
+                'mobile_no' =>$data['mobile'],
+                'land_no' =>$data['land'],
             ]);
+            if($data['type']=='1'){
+                Vendor::create([
+                    'name' => $data['name'],
+                    'user_id' => $user->id,
+                    'company_name'=>$data['company'],
+                    'description'=>$data['description'],
+                    'vendor_address'=>$data['address'],
+                    'vendor_type'=>$data['vendor_type']
+                ]);
+            }
+
+            DB::commit();    // Commiting  ==> There is no problem whatsoever
+            return $user;
+
+        } catch (\Exception $e) {
+            DB::rollback();   // rollbacking  ==> Something went wrong
+            
+            return $e;
         }
-        return $user;
+        
     }
 }

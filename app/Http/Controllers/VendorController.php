@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\vendor;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class VendorController extends Controller
@@ -13,13 +15,23 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type)
     //hadana adds eka para pennana eka page ekk
     {
-        $data = vendor::all();
-        return view("vendor")->with('data',$data);
+        $vendors = Vendor::all();
+        return view("vendor_services.vendor",compact('vendors','type'));
     }
 
+    public function singleIndex($type,$id)
+    //hadana adds eka para pennana eka page ekk
+    {
+        $vendor = User::leftjoin('vendors', 'vendors.user_id', '=', 'users.id')
+        ->where('users.id',$id)
+        ->orWhere('vendors.vendor_type',$type)
+        ->get(['users.*','vendors.name as vendorName','vendors.company_name as companyName','vendors.vendor_address as address','vendors.vendor_type as vendorType'])
+        ->first();
+        return view("vendor_single",compact('vendor','type','id'));
+    }
     /**
      * Show the form for creating a new resource.
      *

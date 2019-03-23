@@ -23,71 +23,75 @@ Route::get('/client', function () {
     return view('client');
 });
 
-// Route::get('vendor', function () {
-//     return view('vendor');
-// });
-
-Route::get('/onlinecalendar', function () {
-    return view('onlinecalendar');
+ Route::get('vendor', function () {
+     return view('vendor'); 
 });
 
+
+Route::get('/onlinecalendar', 'CalendarController@index');
 Route::get('/onlinehelpchatting&wedidea', function () {
     return view('onlinehelpchatting&wedidea');
 });
 
-Route::get('/vendor_services.hotel_services', function () {
-    return view('vendor_services.hotel_services');
-});
+// Route::get('/hotel_services', function () {
 
-Route::get('/vendor_services.salon', function () {
-    return view('vendor_services.salon');
-});
+//     return view('vendor_services.hotel_services');
+// });
 
-Route::get('/vendor_services.videography', function () {
-    return view('vendor_services.videography');
-});
+// Route::get('/vendor_services.salon', function () {     
+//     return view('vendor_services.salon');
+// });
 
-Route::get('/vendor_services.photography', function () {
-    return view('vendor_services.photography');
-});
+// Route::get('/vendor_services.videography', function () {
+//     return view('vendor_services.videography');
+// });
 
-Route::get('/photo_gallery', function () {
-    return view('photo_gallery');
-});
+// Route::get('/vendor_services.photography', function () {
+//     return view('vendor_services.photography');
+// });
 
-Route::get('/salon', function () {
-    return view('vendor_services.salon');
-});
+// Route::get('/vendor_services.wedding_deco', function () {
+//     return view('vendor_services.wedding_deco');
+// });
 
-Route::get('/hotel_services', function () {
-    return view('vendor_services.hotel_services');
-});
+// Route::get('/photo_gallery', function () {
+//     return view('photo_gallery');
+// });
 
-Route::get('/videography', function () {
-    return view('vendor_services.videography');
-});
+// Route::get('/salon', function () {
+//     return view('vendor_services.salon');
+// });
+
+// Route::get('/hotel_services', function () {
+//     return view('vendor_services.hotel_services');
+// });
+
+// Route::get('/videography', function () {
+//     return view('vendor_services.videography');
+// });
 
 
-Route::get('/photography', function () {
-    return view('vendor_services.photography');
-});
+// Route::get('/photography', function () {
+//     return view('vendor_services.photography');
+// });
 
-Route::get('/wedding_deco', function () {
-    return view('vendor_services.wedding_deco');
-});
+// Route::get('/wedding_deco', function () {
+//     return view('vendor_services.wedding_deco');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //create vendor link
-Route::resource('/vendor', 'VendorController');
+Route::get('/vendor/{type}', 'VendorController@index');
+Route::get('/vendor/{type}/{id}', 'VendorController@singleIndex');
 
-Route::get('/vendor_services.wedding_deco', function () {
-    return view('vendor_services.wedding_deco');
-});
 
-Route::get('/profile', 'UserController@index');
+
+Route::get('/profile', 'ProfileController@index');
+Route::get('/updateUser', 'ProfileController@update');
+
 
 Route::group(['middleware' => 'can:vendor'], function() {
     Route::get('/clients', 'UserController@allClients');
@@ -95,9 +99,9 @@ Route::group(['middleware' => 'can:vendor'], function() {
 
 
 
-Route::get('/profile', 'ProfileController@index');
+// Route::get('/profile', 'ProfileController@index');
 
 
-Route::get('calendar', 'CalendarController@index')->name('calendars,index');
-Route::post('calendar', 'CalendarController@addEvent')->name('calendars,add');
+Route::get('calendars', 'CalendarController@index');
+
 

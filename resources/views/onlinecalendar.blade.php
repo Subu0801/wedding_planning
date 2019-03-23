@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 {{--  include content  --}}
-@section('content')
+ @section('content')  
 
-<div class="container">
-        <div class="row">
+ <div class="container"> 
+         <div class="row">  
             {{--  first side bar  --}}
-            <div class="col-sm-3">
+              <div class="col-sm-3 col-md-3">
                     <div class="card-deck">
                             <div class="card">
                               <img src="{{asset('images/profile/sixth.JPG') }}" class="card-img-top" alt="...">
@@ -40,193 +40,47 @@
                                 <li class="vendor_set">
                                         <a class="vendor-link" href="wedding_deco">Wedding Deco</a>
                                 </li>
-                                <br>
-                                <br>
-
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                
                               </div>
                             </div>
                     </div>
                 </div>
-            
-            
-            
-            
-            
-        <div class="col-sm-9">
-                <style>
-                        * {box-sizing: border-box;}
-                        ul {list-style-type: none;}
-                        body {font-family: Verdana, sans-serif;}
-                        
-                        .month {
-                          padding: 70px 25px;
-                          width: 100%;
-                          background: #1abc9c;
-                          text-align: center;
-                        }
-                        
-                        .month ul {
-                          margin: 0;
-                          padding: 0;
-                        }
-                        
-                        .month ul li {
-                          color: white;
-                          font-size: 20px;
-                          text-transform: uppercase;
-                          letter-spacing: 3px;
-                        }
-                        
-                        .month .prev {
-                          float: left;
-                          padding-top: 10px;
-                        }
-                        
-                        .month .next {
-                          float: right;
-                          padding-top: 10px;
-                        }
-                        
-                        .weekdays {
-                          margin: 0;
-                          padding: 10px 0;
-                          background-color: #ddd;
-                        }
-                        
-                        .weekdays li {
-                          display: inline-block;
-                          width: 13.6%;
-                          color: #666;
-                          text-align: center;
-                        }
-                        
-                        .days {
-                          padding: 10px 0;
-                          background: #eee;
-                          margin: 0;
-                        }
-                        
-                        .days li {
-                          list-style-type: none;
-                          display: inline-block;
-                          width: 13.6%;
-                          text-align: center;
-                          margin-bottom: 5px;
-                          font-size:12px;
-                          color: #777;
-                        }
-                        
-                        .days li .active {
-                          padding: 5px;
-                          background: #1abc9c;
-                          color: white !important
-                        }
-                        
-                        /* Add media queries for smaller screens */
-                        @media screen and (max-width:720px) {
-                          .weekdays li, .days li {width: 13.1%;}
-                        }
-                        
-                        @media screen and (max-width: 420px) {
-                          .weekdays li, .days li {width: 12.5%;}
-                          .days li .active {padding: 2px;}
-                        }
-                        
-                        @media screen and (max-width: 290px) {
-                          .weekdays li, .days li {width: 12.2%;}
-                        }
-                        </style>
-                        </head>
-                        <body>
-                        
-                        <h1>CSS Calendar</h1>
-                        
-                        <div class="month"> 
-                            <ul>    
-                                <select>
-                                        <option value="month">january</option>
-                                        <option value="month">Febary</option>
-                                        <option value="month">March</option>
-                                        <option value="month">Aapril</option>
-                                        <option value="month">May</option>
-                                        <option value="month">June</option>
-                                        <option value="month">July</option>
-                                        <option value="month">Auguest</option>
-                                        <option value="month">September</option>
-                                        <option value="month">Octomber</option>
-                                        <option value="month">November</option>
-                                        <option value="month">December</option>
-                                </select> 
-                                <select>
-                                    <option value+"year">2018</option>
-                                    <option value+"year">2019</option>
-                                    <option value="year">2020</option>
-                                    <option value="year">2021</option>
-                                    <option value="year">2022</option>
-                                    <option value="year">2023</option>
-                                    <option value="year">2024</option>
-                                    <option value="year">2025</option>
 
+                
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">Full Calendar Example</div>
 
-                                </select>
-                            </ul>
-                          
-                        </div>
-                        
-                        <ul class="weekdays">
-                          <li>Mo</li>
-                          <li>Tu</li>
-                          <li>We</li>
-                          <li>Th</li>
-                          <li>Fr</li>
-                          <li>Sa</li>
-                          <li>Su</li>
-                        </ul>
-                        
-                        <ul class="days">  
-                          <li>1</li>
-                          <li>2</li>
-                          <li>3</li>
-                          <li>4</li>
-                          <li>5</li>
-                          <li>6</li>
-                          <li>7</li>
-                          <li>8</li>
-                          <li>9</li>
-                          <li><span class="active">10</span></li>
-                          <li>11</li>
-                          <li>12</li>
-                          <li>13</li>
-                          <li>14</li>
-                          <li>15</li>
-                          <li>16</li>
-                          <li>17</li>
-                          <li>18</li>
-                          <li>19</li>
-                          <li>20</li>
-                          <li>21</li>
-                          <li>22</li>
-                          <li>23</li>
-                          <li>24</li>
-                          <li>25</li>
-                          <li>26</li>
-                          <li>27</li>
-                          <li>28</li>
-                          <li>29</li>
-                          <li>30</li>
-                          <li>31</li>
-                        </ul>
-                        
-
-                        <a class="bookin_appoinment" href="/onlinehelpchatting&wedidea" text="black">Got the Appoinment Day.</a>
-                        
-                        </body>
+                <div class="panel-body">
+                    {!! $calendar->calendar() !!}
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
+    
+                  
+         </div>
+</div>
+@endsection
+
+@section('style')
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+@endsection
+
+
+
+@section('script')
+{{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>  --}}
+{{--  <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/jquery.min.js'></script>  --}}
+<script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/moment.min.js'></script>
+<script src='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.js'></script>
+{!! $calendar->script() !!}
+@endsection
+    
  
 
 
 
-@endsection
+{{--  @endsection  --}}

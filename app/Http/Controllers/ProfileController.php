@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +18,15 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = User::where('id',auth()->id())->get();
-        dd($profile);
+        // $data = Catagory::all();
+        // return view('catagory.index')->with('data',$data);
+    
+        $profile = User::leftjoin('vendors', 'vendors.user_id', '=', 'users.id')
+            ->where('users.id',auth()->id())
+            ->get(['users.*','vendors.name as vendorName','vendors.company_name as companyName','vendors.vendor_address as address','vendors.vendor_type as vendorType'])
+            ->first();
+        return view('profile',compact('profile'));
+
     }
 
     /**
@@ -67,9 +79,21 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::where('id',$request->id)
+        ->update(array(
+            'name' => $request->name,
+            // 'user_type' => $request->usertype,
+            'mobile_no' => $request->mobile,
+            'password' => Hash::make($request->newPassword),
+            'land_no' => $request->land,
+            'email' => $request->email,
+        ));
+
+        // return redirect()->action('ProfileController@index')->with('Successfully Updated');
+        return redirect()->back()->with('message','Successfully Updated');
+
     }
 
     /**
@@ -78,7 +102,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
     }

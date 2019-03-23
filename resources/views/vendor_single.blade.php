@@ -47,53 +47,12 @@
                         </div>
                   </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-9">
                 <h1>Profile</h1>
-                Name : {{$profile->name}}
-                <br>
-                Mobile_Number : {{$profile->mobile_no}}
-                <br>
-                Land_Number : {{$profile->land_no}}
-                <br>
-                Email : {{$profile->email}}
-                <br>
-                {{--  Password : {{$profile->password}}
-                <br>  --}}
+                Name : {{$vendor->name}}
+        
           </div>
-          <div class="col-sm-5">
-                @if(session()->has('message'))
-                <div class="alert alert-success">
-                        {{ session()->get('message') }}
-                </div>
-                @endif
-                <form action="/updateUser" method="">
-                        <input type="hidden" name="id" value="{{$profile->id}}"/>
-                        Name : <input type="text" name="name" id="name" placeholder=""/> 
-                        <br>
-                        <br>
-                        <br>
-                        {{-- User Type : <input type="text" name="usertype" id="usertype" placeholder=""/>
-                        <br>
-                        <br>
-                        <br> --}}
-                        Mobile Number : <input type="text" name="mobile" id="mobile" placeholder=""/>
-                        <br>
-                        <br>
-                        <br>
-                        Password : <input type="password" name="password" id="password" placeholder=""/> 
-                        <br>
-                        <br>
-                        <br>
-                        Land Number : <input type="text" name="land" id="land" placeholder=""/>
-                        <br>
-                        <br>
-                        <br>
-                        email : <input type="text" name="email" id="email" placeholder=""/>
-                        <button type="submit">Update User</button>
-                        
-                        
-                </form>
-          </div>
+        
           
  
 

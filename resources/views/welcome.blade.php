@@ -12,8 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #DAA520;
+                color: #000000;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -45,11 +45,11 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 75px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FF0000	;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -59,8 +59,11 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 50px;
+                height: 58px;
+                
             }
+            
         </style>
     </head>
     <body>
@@ -80,21 +83,23 @@
             @endif
 
             <div class="content">
-                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="450" width="1349">
+                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="522" width="1364">
                 <div class="title m-b-md">
-                    Wedding Bell chain
+                   <b><i> Wedding Bell chain</b></i>
                 </div>
 
              <div class="links">
                     <a href="home">Home Page</a>
                     <a href="our_services">Our Services</a>
-                    <a href="profile">Client Account</a>
+                    {{--  <a href="profile">Client Account</a>  --}}
                     <a href="vendor">Vendors</a>
                     <a href="onlinecalendar">Online Calendar Services</a>
                     <a href="onlinehelpchatting&wedidea">Online Help Chatting  Wedd Idea</a>
                 </div> 
             </div>
+            
         </div>
+        
     </body>
 </html>
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Calendar;
 use Illuminate\Http\Request;
+use Calendar;
+use App\Calendar as Event; 
 
-use calendar;
+// use calendar;
 
 class CalendarController extends Controller
 {
@@ -16,7 +17,30 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        //
+        $events = [];
+        $data = Event::all();
+
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $events[] = Calendar::event(
+                    $value->company_name,
+                    true,
+                    new \DateTime($value->booking_date),
+                    new \DateTime($value->booking_date.' +1 day'),
+                    
+                    null,
+                    // Add color and link on event
+	                [
+	                    'color' => '#f05050',
+	                    'url' => 'pass here url and any route',
+	                ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+        // dd($calendar);
+        return view('onlinecalendar', compact('calendar'));
+    
     }
 
     /**

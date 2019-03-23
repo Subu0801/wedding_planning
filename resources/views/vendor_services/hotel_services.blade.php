@@ -27,24 +27,24 @@
                                 <br>
 
                                 <li class="vendor_set">
-                                        <a class="vendor-link" href="photography">Photography</a>
+                                        <a class="vendor-link" href="/photography">Photography</a>
                                 </li>
                                 <br>
                                 <br>
 
                                 <li class="vendor_set">
-                                        <a class="vendor-link" href="videography">Videography</a>
+                                        <a class="vendor-link" href="/videography">Videography</a>
                                 </li>
                                 <br>
                                 <br>
 
                                 <li class="vendor_set">
-                                        <a class="vendor-link" href="wedding_deco">Wedding Deco</a>
+                                        <a class="vendor-link" href="/wedding_deco">Wedding Deco</a>
                                 </li>
                                 <br>
                                 <br>
 
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                
                               </div>
                             </div>
                     </div>
@@ -238,12 +238,7 @@
                   
                     </div>
     
-                    
-                      
-                         
-      
-            
-        </div>
+                </div>
     </div>
     
     

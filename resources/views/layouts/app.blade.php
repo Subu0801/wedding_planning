@@ -15,13 +15,14 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    
+    @yield('style')
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-   {{--  custom css  --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+{{--  custom css  --}}
    
 </head>
 <body>
@@ -30,7 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Wedding bell chain') }}
+                  <font color="goldenrod"><b>{{ config('app.name', 'Wedding bell chain') }}</font></b>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,11 +48,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}"><font color="red"><b>{{ __('Login') }}</font></b></a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><font color="red"><b>{{ __('Register') }}</font></b></a>
                                 </li>
                             @endif
                         @else
@@ -83,86 +84,75 @@
 
         {{--  2nd navi bar  --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                {{--  <a class="navbar-brand" href="#">Navbar</a>  --}}
-                {{--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>  --}}
-              
+                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/home"><font color="red"><b>Home</font></b> <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/our_services">Our Services</a>
+                      <a class="nav-link" href="/our_services"><font color="red"><b>Our Services</font></b></a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="/profile">Profile</a>
+                            <a class="nav-link" href="/profile"><font color="red"><b>Profile</font></b></a>
                      </li>
                      
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="/vendor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vendors
-                      </a>
+                      <a class="nav-link dropdown-toggle" href="/vendor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font color="red"><b>
+                        Vendors</font></b></a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/vendor_services.salon">Salon</a>
-                        <a class="dropdown-item" href="/vendor_services.hotel_services">Hotels Services</a>
-                        <a class="dropdown-item" href="/vendor_services.videography">Videography</a>
-                        <a class="dropdown-item" href="/vendor_services.photography">Photography</a>
-                        <a class="dropdown-item" href="/vendor_services.wedding_deco">Wedding Deco</a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/salon"><font color="red"><b>Salon</font></b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/hotel_services"><font color="red"><b>Hotels Services</font></b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/videography"><font color="red"><b>Videography</font></b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/photography"><font color="red"><b>Photography</font></b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/wedding_deco"><font color="red"><b>Wedding Deco</font></b></a>
                       </div>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="/onlinecalendar">Online Calendar Services</a>
+                            <a class="nav-link" href="/onlinecalendar"><font color="red"><b>Online Calendar Services</font></b></a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="/onlinehelpchatting&wedidea">Online Help Chatting & Wedd Idea</a>
+                            <a class="nav-link" href="/onlinehelpchatting&wedidea"><font color="red"><b>Online Help Chatting & Wedd Idea</font></b></a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/photo_gallery">Photo Gallery</a>
-                    </li>
-                 
-                     
-                    {{--  <li class="nav-item">
-                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Online Calendar Services</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Online Help Chatting & Wedd Idea. </a>
-                    </li>  --}}
-                  </ul>
-                  {{-- <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form> --}}
-                </div>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="/photo_gallery"><font color="red"><b>Photo Gallery</font></b></a>
+                    </li> --}}
+                </ul>
+              </div>
               </nav>
 
               {{--  slide show code  --}}
-        <div class="container-fluid">
+          <div class="container-fluid, padding-right: 0px,  padding-left: 0px">
+            
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                         </ol>
-                        <div style="height: 600px" class="carousel-inner">
+                        <div style="height: 550px" class="carousel-inner">
                           <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('images/profile/22.JPG') }}" alt="First slide">
+                            <img class="d-block w-100" src="{{asset('images/slideshow/s1.png') }}" alt="First slide">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/profile/one.JPG') }}" alt="Second slide">
+                            <img class="d-block w-100" src="{{asset('images/slideshow/s2.png') }}" alt="Second slide">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/profile/third.JPG') }}" alt="Third slide">
+                            <img class="d-block w-100" src="{{asset('images/slideshow/s3.png') }}" alt="Third slide">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/profile/21.JPG') }}" alt="Fourth slide">
+                            <img class="d-block w-100" src="{{asset('images/slideshow/s4.png') }}" alt="Fourth slide">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/profile/second.JPG') }}" alt="Fourth slide">
+                            <img class="d-block w-100" src="{{asset('images/slideshow/s5.png') }}" alt="Fourth slide">
                           </div>
+                          <div class="carousel-item">
+                              <img class="d-block w-100" src="{{asset('images/slideshow/s6.png') }}" alt="Fourth slide">
+                          </div>
+                          
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -173,62 +163,147 @@
                           <span class="sr-only">Next</span>
                         </a>
                       </div>
-                      
-        </div>
+            </div>
         </div>
         
         <main class="py-4">
             @yield('content')
-            <body style='background-color:#FFFF99'>
+            <body style='background-color:#FFFACD	'>
 
         </main>
-    </div>
+      </div>
+          <!-- Footer -->
+          <div style="background-color: #DAA520;">
+          <footer class="page-footer font-small unique-color-dark">
 
-    {{--  footer start  --}}
-      
-       <div  class="badge-dark text-light">
-            <div style="width: 100%" class="row">
-                <div class="col-sm-6"><div class="card-body">
-                  <h5 class="card-title">Footer of Web Site</h5>
-                  
-                  <img src="{{asset('images/symbol/email.JPG') }}" alt="emailicon" width="35";height="35" ><h6>Join Us - weddingbell@gmail.com</h6>
-                  <br>
+          
+              <div style="background-color: #DAA520;">
                 
-                  <img src="{{asset('images/symbol/tele.png') }}" alt="tele" width="35";height="35"><h6>Call Us - 033-2281456/071-3044756</h6>
-                  <br>
-
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="container">
+          
+                  <!-- Grid row-->
+                  <div class="row py-4 d-flex align-items-center">
+          
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                      <h6 class="mb-0"><b><i>Get connected with us on social networks.</i></b></h6>
+                    </div>
+                    <!-- Grid column -->
+          
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+          
+                      <!-- Facebook -->
+                      <a class="fb-ic">
+                        <i class="fab fa-facebook-f white-text mr-4"> </i>
+                      </a>
+                      <!-- Twitter -->
+                      <a class="tw-ic">
+                        <i class="fab fa-twitter white-text mr-4"> </i>
+                      </a>
+                      <!-- Google +-->
+                      <a class="gplus-ic">
+                        <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                      </a>
+                      <!--Linkedin -->
+                      <a class="li-ic">
+                        <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                      </a>
+                      <!--Instagram-->
+                      <a class="ins-ic">
+                        <i class="fab fa-instagram white-text"> </i>
+                      </a>
+          
+                    </div>
+                    <!-- Grid column -->
+          
+                  </div>
+                  <!-- Grid row-->
+          
                 </div>
               </div>
-
-              {{--  feedback bar  start--}}
-                <div class="col-sm-6"> <h5 class="card-title">Web Site Progress</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+          
+              <!-- Footer Links -->
+              <div style="background-color: #DAA520;">
+              <div class="container text-center text-md-left mt-5">
+          
+                <!-- Grid row -->
+                <div class="row mt-3">
+          
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          
+                    <!-- Content -->
+                    <h6 class="text-uppercase font-weight-bold"><b>Wedding Bell Chain</b></h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Our website has everything the newly engaged couple needs to start planning their big day, 
+                      from fashion and beauty to exhaustive vendor lists and tips and advice, easy-to-navigate. 
+                      We make sure to turn your dream wedding into a reality.We provide you all the required information about industry specialists of salon,
+                      hotel videography, photography and decorations for your wedding day to be the perfect day.</p>
+          
                   </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  <!-- Grid column -->
+          
+                  <!-- Grid column -->
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    
+                  <!-- Links -->
+                    
+                    <h6 class="text-uppercase font-weight-bold">Services</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                      <a href="/salon"><font color="red"><b>Salon</b></font></a>
+                    </p>
+                    <p>
+                      <a href="/hotel_services"><font color="red"><b>Hotel Services</font></b></a>
+                    </p>
+                    <p>
+                      <a href="/photography"><font color="red"><b>Photography</font></b></a>
+                    </p>
+                    <p>
+                      <a href="/videography"><font color="red"><b>Videography</font></b></a>
+                    </p>
+                    <p>
+                        <a href="/wedding_deco"><font color="red"><b>Wedding Deco</font></b></a>
+                    </p>
+          
                   </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <!-- Grid column -->
+    
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                      <i class="fas fa-home mr-3"></i> No.101/A, Maradana,Colombo10.</p>
+                    <p>
+                      <i class="fas fa-envelope mr-3"></i> weddingbellservices@gmail.com</p>
+                    <p>
+                      <i class="fas fa-phone mr-3"></i>+9471-3045125 </p>
+                    <p>
+                      <i class="fas fa-print mr-3"></i>+9411-2215423</p>
+          
                   </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                  <!-- Grid column -->
+          
                 </div>
-            </div>
-          </div>  
-            {{--  <div class="col-sm-6">
-            
-          </div>  --}}
-            
+                <!-- Grid row -->
+          
+              </div>
+              <!-- Footer Links --
+          
+            </footer>
+            <!-- Footer -->
           </div>
         </div>   
-        <script src="js/jquery-3.3.1.min.js"></script>
+
+        {{--  <script src="js/jquery-3.3.1.js"></script>  --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/moment.min.js'></script>
+        <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.js'></script>
         <script src="js/profile.js"></script>
+        @yield('script')
+
 </body>
 </html>
