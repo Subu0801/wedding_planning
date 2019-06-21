@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
+use App\Profile;
+
 class ProfileController extends Controller
 {
     public function __construct()
@@ -81,6 +83,8 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
+        
+
         $user = User::where('id',$request->id)
         ->update(array(
             'name' => $request->name,
@@ -105,5 +109,24 @@ class ProfileController extends Controller
     public function destroy(Request $request)
     {
         //
+    }
+
+    //update profile
+
+    public function updateImg(Request $request){
+        request()->validate([
+
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+
+        ]); 
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
+        request()->image->move(public_path('images/user_profile'), $imageName);
+
+        Profile::create(([
+            'user_id'=>auth()->id(),
+            'profile_img'=> $imageName,
+        ]));
     }
 }

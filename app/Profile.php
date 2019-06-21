@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    protected $table = 'vendors';
+    protected $table = 'profiles';
     protected $guarded = [];
 }
 

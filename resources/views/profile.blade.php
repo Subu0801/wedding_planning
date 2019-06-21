@@ -66,8 +66,9 @@
                         {{ session()->get('message') }}
                 </div>
                 @endif
-                <form action="/updateUser" method="">
+                <form action="/updateUser" method="" >
                         <input type="hidden" name="id" value="{{$profile->id}}"/>
+                       
                         Name : <input type="text" name="name" id="name" placeholder=""/> 
                         <br>
                         <br>
@@ -93,6 +94,22 @@
                         
                         
                 </form>
+
+                <br>
+                        <br>
+                        <br>
+
+                <form action="/uplodimg" method="post" enctype="multipart/form-data" >
+                        {{ csrf_field() }}
+                        Profile Image : <input type="file" name="image" class="form-control">
+
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit">Store Image</button>
+                        
+                </form>       
+                        
           </div>
           
  

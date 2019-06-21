@@ -56,20 +56,24 @@
                                 </style>
             <div class="col-sm-9">
                     <div class="row">
-            @foreach($vendors as $vendor)
-            @if (strtolower($type)=== strtolower($vendor->vendor_type))
+
+                        {{-- //add image tag --}}
+            @foreach($groups as $group)
+            @if (strtolower($type)=== strtolower($group[0]->vendor_type))
             {{--  vendor group post past  --}}
             <div class="col-sm-4">
                     <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                             {{--  <div class="card-header">{{$vendor->company_name}}</div>  --}}
                             <div class="card-body">
-                              <h5 class="card-title">{{$vendor->company_name}}</h5>
+                              <h5 class="card-title">{{$group[0]->company_name}}</h5>
                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card.</p>
                               <h3>Are you want appoinment day</h3>
-                              <a class="show_calendar" href="/onlinecalendar" text="black">Serch to Calendar</a><br><br>
-                              <a class="show_gallery" href="/photo_gallery" text="black">Serch to Gallery</a><br>
-                              <a class="" href="/vendor/{{$vendor->vendor_type}}/{{$vendor->user_id}}" text="black">View Service</a>
-
+                              {{--  <a class="show_calendar" href="/onlinecalendar" text="black">Serch to Calendar</a><br><br>--}}
+                              <a class="" href="/vendor/{{$group[0]->vendor_type}}/{{$group[0]->user_id}}" text="black">View Service</a> 
+                              @foreach($group as $one)
+                              <img src="{{asset('images/user_profile') }}/{{$one->profile_img}}" class="card-img-top" alt="...">
+                              @endforeach
+                              {{--  <a href="/vendor/{{$vendor->type}}/{{$vendor->id}}">details</a>  --}}
                               {{--  <h3>Want Your FEEDBACK</h3>  --}}
                               <!-- Font Awesome Icon Library -->
                             
@@ -77,11 +81,12 @@
                                 <body>
 
                                 <h3>Rating ours</h3>
-                                <span class="fa fa-star checked"></span>
+                                {{-- <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span> --}}
+                                <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $group[0]->averageRating }}" data-size="xs" disabled="">
 
                             </div>
                         </div>
@@ -91,7 +96,8 @@
                     
                           </div>
                           @endif
-                          @endforeach      
+            @endforeach
+                 
                         </div> 
                         </div>
                         </div>

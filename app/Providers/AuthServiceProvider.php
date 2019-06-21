@@ -25,6 +25,20 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //gate use can indintify the vendor and user
+
+         //Gates
+         Gate::define('vendor', function ($user) {
+            if($user->user_type==1){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('user', function ($user) {
+            if($user->user_type==0){
+                return true;
+            }
+            return false;
+        });
     }
 }

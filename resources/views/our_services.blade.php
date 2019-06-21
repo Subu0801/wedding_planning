@@ -51,9 +51,12 @@
                 {{-- website discription   --}}
                     <div class="col-sm-9">
         <div class="card bg-white text-black">
-                  <h1 class="card-title align-center"><b><i>EASY HELPER CHAIN FOR LISTEN TO WEDDING BELL.</b></i></h1>
-                  <p class="card-text">We are the wedding and event planning web site. we cn help of planning your dream wedding.
-                           our site have vendors. can you have select the vendors and can get the wedding services.</p>
+                  <h1 class="card-title align-center"><b><i><font size="24pt">EASY HELPER CHAIN FOR LISTEN TO WEDDING BELL.</font></b></i></h1>
+                  <div>
+                  <p class="card-text">Our website has everything the newly engaged couple needs to start planning their big day, 
+                                from fashion and beauty to exhaustive vendor lists and tips and advice, easy-to-navigate. 
+                                We make sure to turn your dream wedding into a reality.We provide you all the required information about industry specialists of salon,
+                                hotel videography, photography and decorations for your wedding day to be the perfect day.</p>
                   
                 </div>
                 <div>

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\vendor;
 use App\User;
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
-
+use Calendar;
+use App\Event;
 class VendorController extends Controller
 {
     
@@ -15,21 +16,42 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function adminIndex(){
+        return view('admin.vendor');
+    }
+
     public function index($type)
-    //hadana adds eka para pennana eka page ekk
+    
     {
-        $vendors = Vendor::all();
-        return view("vendor_services.vendor",compact('vendors','type'));
+       
+        $vendors = Vendor::leftjoin('profiles','profiles.user_id','=','vendors.user_id')
+        ->select('vendors.vendor_id as id','vendors.name','vendors.company_name','vendors.description','vendors.vendor_address','vendors.vendor_type','vendors.user_id','profiles.profile_img')
+        ->get();
+        $groups = array();
+
+        foreach ( $vendors as $value ) {
+            $groups[$value['user_id']][] = $value;
+        }
+        // $vendors = Vendor::all();
+        // dd($vendors);
+        return view("vendor_services.vendor",compact('type','groups'));
     }
 
     public function singleIndex($type,$id)
-    //hadana adds eka para pennana eka page ekk
+   
     {
-        $vendor = User::leftjoin('vendors', 'vendors.user_id', '=', 'users.id')
+        // $vendor = Vendor::leftjoin('users', 'vendors.user_id', '=', 'users.id')
+        // ->where('users.id',$id)->first();
+        $vendor = Vendor::leftjoin('users', 'vendors.user_id', '=', 'users.id')
         ->where('users.id',$id)
-        ->orWhere('vendors.vendor_type',$type)
-        ->get(['users.*','vendors.name as vendorName','vendors.company_name as companyName','vendors.vendor_address as address','vendors.vendor_type as vendorType'])
+        ->where('vendors.vendor_type',$type)
+        ->get(['users.id as userId','users.name','vendors.vendor_id as id','vendors.name as vendorName','vendors.company_name as companyName','vendors.vendor_address as address','vendors.vendor_type as vendorType'])
         ->first();
+       
+
+        
+
+    
         return view("vendor_single",compact('vendor','type','id'));
     }
     /**
@@ -38,7 +60,7 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    // hadana form eke form eka load krana page ekk hadanawa
+    
     {
         return view("vendor.create");
     }
@@ -91,7 +113,7 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(vendor $vendor)
-    //post godak thibbama eka post ekk clik karama ekak widihata penna eka
+   
     {
         $data = Vendor::find($id);
         return view("vendor.show")->with('data',$data);
@@ -105,7 +127,7 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(vendor $vendor)
-    //denata thiya post eka edit kranda one unma edit button eka click krata passe data base eka aluth form ekakkata ganna eka
+    
     {
         //
     }
@@ -118,7 +140,7 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, vendor $vendor)
-    //edit karama ena form ekta aluth details demma wena eka
+    
     {
         //
     }
@@ -130,8 +152,28 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(vendor $vendor)
-    //post delete krana eka
+    
     {
         //
+    }
+
+    public function postPost(Request $request) //rating save
+
+    {
+
+        request()->validate(['rate' => 'required']);
+        $post = Vendor::select('vendors.vendor_id as id','vendors.name','vendors.company_name','vendors.description','vendors.vendor_address','vendors.vendor_type','vendors.user_id','vendors.created_at','vendors.updated_at')
+        ->where('vendor_id', $request->id)
+        ->get()
+        ->first();//::find($request->id);
+        
+        $rating = new \willvincent\Rateable\Rating;
+        $rating->rating = $request->rate;
+        $rating->user_id = auth()->user()->id;
+        $post->ratings()->save($rating);
+        // Redirect::back()->with('message','Operation Successful !');
+        // return redirect::refresh();
+        // return redirect()->route("/vendor/{$post->vendor_type}");
+
     }
 }

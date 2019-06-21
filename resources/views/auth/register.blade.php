@@ -82,8 +82,7 @@
                                 </div>
                             </div>
                             
-                        </div>
-                        
+                        </div>                        
 {{--  public form section  --}}
                         
                           <div class="form-group row">

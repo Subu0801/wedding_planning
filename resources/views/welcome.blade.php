@@ -83,7 +83,7 @@
             @endif
 
             <div class="content">
-                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="522" width="1364">
+                <img src="{{asset('images/profile/second.jpg')}}" alt="welcomepic" height="515" width="1349">
                 <div class="title m-b-md">
                    <b><i> Wedding Bell chain</b></i>
                 </div>
@@ -93,8 +93,7 @@
                     <a href="our_services">Our Services</a>
                     {{--  <a href="profile">Client Account</a>  --}}
                     <a href="vendor">Vendors</a>
-                    <a href="onlinecalendar">Online Calendar Services</a>
-                    <a href="onlinehelpchatting&wedidea">Online Help Chatting  Wedd Idea</a>
+                    
                 </div> 
             </div>
             

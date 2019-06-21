@@ -11,7 +11,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
 
+    <link href="{{asset('css/libs/bootstrap.min.css')}}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+    
+    
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -23,9 +31,10 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
 {{--  custom css  --}}
-   
+
+    @yield('content-head-libs')
 </head>
-<body>
+<body style="font-size:14px">
     <div id="app">
         {{--  1st navi bar  --}}
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
@@ -58,7 +67,8 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} 
+                                    {{--  <span class="caret"></span>  --}}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -88,32 +98,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="/home"><font color="red"><b>Home</font></b> <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/home"><b>Home</font></b> <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/our_services"><font color="red"><b>Our Services</font></b></a>
+                      <a class="nav-link" href="/our_services"><b>Our Services</b></a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="/profile"><font color="red"><b>Profile</font></b></a>
+                            <a class="nav-link" href="/profile"><b>Profile</b></a>
                      </li>
                      
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="/vendor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font color="red"><b>
+                      <a class="nav-link dropdown-toggle" href="/vendor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>
                         Vendors</font></b></a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/salon"><font color="red"><b>Salon</font></b></a>
-                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/hotel_services"><font color="red"><b>Hotels Services</font></b></a>
-                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/videography"><font color="red"><b>Videography</font></b></a>
-                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/photography"><font color="red"><b>Photography</font></b></a>
-                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/wedding_deco"><font color="red"><b>Wedding Deco</font></b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/salon"><b>Salon</b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/hotel_services"><b>Hotels Services</b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/videography"><b>Videography</b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/photography"><b>Photography</b></a>
+                        <a class="dropdown-item" href="<?php echo url('/') ?>/vendor/wedding_deco"><b>Wedding Deco</b></a>
                       </div>
                     </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/onlinecalendar"><font color="red"><b>Online Calendar Services</font></b></a>
+                    {{-- <li class="nav-item">
+                            <a class="nav-link" href="/onlinecalendar"><b>Online Calendar Services</b></a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="/onlinehelpchatting&wedidea"><font color="red"><b>Online Help Chatting & Wedd Idea</font></b></a>
-                    </li>
+                            <a class="nav-link" href="/onlinehelpchatting&wedidea"><b>Online Help Chatting & Wedd Idea</b></a>
+                    </li> --}}
 
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="/photo_gallery"><font color="red"><b>Photo Gallery</font></b></a>
@@ -252,19 +262,19 @@
                     <h6 class="text-uppercase font-weight-bold">Services</h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                      <a href="/salon"><font color="red"><b>Salon</b></font></a>
+                      <a href="/salon"><b>Salon</b></font></a>
                     </p>
                     <p>
-                      <a href="/hotel_services"><font color="red"><b>Hotel Services</font></b></a>
+                      <a href="/hotel_services"><b>Hotel Services</font></b></a>
                     </p>
                     <p>
-                      <a href="/photography"><font color="red"><b>Photography</font></b></a>
+                      <a href="/photography"><b>Photography</font></b></a>
                     </p>
                     <p>
-                      <a href="/videography"><font color="red"><b>Videography</font></b></a>
+                      <a href="/videography"><b>Videography</font></b></a>
                     </p>
                     <p>
-                        <a href="/wedding_deco"><font color="red"><b>Wedding Deco</font></b></a>
+                        <a href="/wedding_deco"><b>Wedding Deco</font></b></a>
                     </p>
           
                   </div>
@@ -298,10 +308,12 @@
           </div>
         </div>   
 
-        {{--  <script src="js/jquery-3.3.1.js"></script>  --}}
+        <script src="js/jquery-3.3.1.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/lib/moment.min.js'></script>
         <script src='https://fullcalendar.io/js/fullcalendar-3.1.0/fullcalendar.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+
         <script src="js/profile.js"></script>
         @yield('script')
 
